@@ -1,0 +1,17 @@
+stages:
+  clean:
+    cmd: python src/CleanData.py
+    deps:
+    - data/test.csv
+    - src/CleanData.py
+  train:
+    cmd: python src/TrainModel.py
+    deps:
+    - data/Cleansed/xTrainingSet.csv
+  evaluate:
+    cmd: python src/Evaluate.py
+    deps:
+    - data/Model
+    metrics:
+    - data/Evaluation/result.json:
+         cache: false

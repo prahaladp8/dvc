@@ -1,0 +1,28 @@
+schema: '2.0'
+stages:
+  clean:
+    cmd: python src/CleanData.py
+    deps:
+    - path: data/test.csv
+      md5: ec3c53781dff0851ae3f8b76818bf560
+      size: 30003
+    - path: src/CleanData.py
+      md5: 3b73ec02a300f13843e05020a3a79792
+      size: 1910
+  train:
+    cmd: python src/TrainModel.py
+    deps:
+    - path: data/Cleansed/xTrainingSet.csv
+      md5: 9df09a258eda879435ae32388d46a4a4
+      size: 19344
+  evaluate:
+    cmd: python src/Evaluate.py
+    deps:
+    - path: data/Model
+      md5: 134ece6810eac42907b65c031deec6f6.dir
+      size: 7051
+      nfiles: 2
+    outs:
+    - path: data/Evaluation/result.json
+      md5: 8f5112d3b3e661d1db7f133110c6d62c
+      size: 31
