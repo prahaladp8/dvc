@@ -19,10 +19,10 @@ stages:
     cmd: python src/Evaluate.py
     deps:
     - path: data/Model
-      md5: 134ece6810eac42907b65c031deec6f6.dir
-      size: 7051
+      md5: 7c573f365c95da45f55b985a4b74dea7.dir
+      size: 57452
       nfiles: 2
     outs:
     - path: data/Evaluation/result.json
-      md5: 8f5112d3b3e661d1db7f133110c6d62c
+      md5: 5ecee6bd6ecc545415cd74152158d71d
       size: 31

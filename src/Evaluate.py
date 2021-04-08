@@ -9,10 +9,11 @@ y_train = pd.read_csv("/Users/prahalad/Desktop/dvc/Data/Cleansed/yTrainingSet.cs
 y_test = pd.read_csv("/Users/prahalad/Desktop/dvc/Data/Cleansed/xTestingSet.csv")
 
 with open("/Users/prahalad/Desktop/dvc/Data/Model/model.pkl",'rb') as f:
-    clf = pickle.load(f)
+    svmModel = pickle.load(f)
 
-clf.predict(x_train)
+accuracy = svmModel.score(x_train,y_train)
 
-accuracy = clf.score(x_train,y_train)
+predictedOutput_svm = svmModel.predict(y_test)
+
+
 pd.DataFrame(pd.Series([accuracy],index=['accuracy'])).to_json(path_or_buf="/Users/prahalad/Desktop/dvc/Data/Evaluation/result.json")
-#xaccuracy_json_data =
