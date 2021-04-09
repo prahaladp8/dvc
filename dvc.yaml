@@ -1,9 +1,11 @@
 stages:
   clean:
     cmd: python src/CleanData.py
+    params:
+    - clean.test
     deps:
     - data/test.csv
-    - src/CleanData.py
+    - src/CleanData.py  
   train:
     cmd: python src/TrainModel.py
     deps:
@@ -11,7 +13,7 @@ stages:
   evaluate:
     cmd: python src/Evaluate.py
     deps:
-    - data/Model
+    - data/Model/model.pkl
     metrics:
     - data/Evaluation/result.json:
          cache: false

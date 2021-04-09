@@ -1,5 +1,8 @@
+clean:
+  test: 6
+
 prepare:
-  split: 0.20
+  split: 0.21
   seed: 20170428
 
 featurize:
