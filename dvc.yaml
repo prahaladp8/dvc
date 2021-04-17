@@ -5,9 +5,11 @@ stages:
     - clean.test
     deps:
     - data/test.csv
-    - src/CleanData.py  
+    - src/CleanData.py
   train:
     cmd: python src/TrainModel.py
+    params:
+    - train.kernal
     deps:
     - data/Cleansed/xTrainingSet.csv
   evaluate:

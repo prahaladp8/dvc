@@ -1,17 +1,18 @@
 import pandas as pd
-import sklearn.linear_model
+import sklearn.svm as svm
 import pickle
-import tensorflow as tf
+import yaml
+
 
 x_train = pd.read_csv("/Users/prahalad/Desktop/dvc/Data/Cleansed/xTrainingSet.csv")
 y_train = pd.read_csv("/Users/prahalad/Desktop/dvc/Data/Cleansed/yTrainingSet.csv")
 
 x_test = pd.read_csv("/Users/prahalad/Desktop/dvc/Data/Cleansed/xTestingSet.csv")
 
+params = yaml.safe_load(open('params.yaml'))['train']
 
-import sklearn.svm as svm
 
-svmModel = svm.SVC()
+svmModel = svm.SVC(kernel=params['kernal'])
 svmModel.fit(x_train,y_train)
 
 
